@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Code Buster</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu:ital,wght@1,700&display=swap');
+</style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script> -->
+  </head>
+  <body>
+    
+  <button onclick="show(1)" class="button_kewl">give_num_guess_letter</button>
+  <button onclick="show(2)" class="button_kewl">give_letter_guess_num</button>
+  <button onclick="show(3)" class="button_kewl">give_morse_guess_letter</button>
+  <button onclick="show(4)" class="button_kewl">give_letter_guess_morse</button>
+  <button onclick="show(5)" class="button_kewl">atbash_encryption</button>
+  <button onclick="show(6)" class="button_kewl">atbash_decryption</button>
+  <button onclick="show(7)" class="button_kewl">shift_encryption</button>
+  <button onclick="show(8)" class="button_kewl">shift_decryption</button>
+  <button onclick="show(9)" class="button_kewl">affine_en</button>
+  <button onclick="show(10)" class="button_kewl">affine_de</button>
+  <button onclick="show(11)" class="button_kewl">vigenere_en</button>
+  <button onclick="show(12)" class="button_kewl">vigenere_de</button>
+  <button onclick="show(13)" class="button_kewl">random_multiplication_for_affine</button>
+  <button onclick="show(14)" class="button_kewl">random_multiplication_for_affine_in_order</button>
+  <button onclick="show(15)" class="button_kewl">baconian_letter_str</button>
+  <button onclick="show(16)" class="button_kewl">modular_arithmetic</button>
+  <button onclick="show(17)" class="button_kewl">modular_arithmetic_w_letters</button>
+  <button onclick="show(18)" class="button_kewl">pollux decryption</button>
+  <button onclick="show(19)" class="button_kewl">morbit decryption</button>
+  <button onclick="show(20)" class="button_kewl">aristocrat/cryptogram</button>
+  <button onclick="show(21)" class="button_kewl">modular_arithmetic_w_negative</button>
+  <button onclick="show(22)" class="button_kewl">create question atbash</button>
+  <button onclick="show(23)" class="button_kewl">print morbit</button>
+  <button onclick="show(24)" class="button_kewl">print pollux</button>
+  <!-- <button onclick="show_createQuestionbutton()" class="button_kewl" id="create-question-buttion">CreateQuestion</button> -->
+<div id="create-question-buttions"></div>
+<!-- 1 -->
+    <div id="give_num_guess_letter" style="">
+        
+        <h1 class="heading">give num guess letter</h1>
+
+        <h3 id="give_num_guess_letter-num" class="question" style="display:inline;">num: </h3>
+        <div class="stopwatch" id="timer-1"></div><br>
+      <input type="text" class="cool_input" id="give_num_guess_letter-input">
+        <button class="button_1" onclick="give_number()">Enter</button>
+        <br>
+        <h1 id="give_num_guess_letter-ans"></h1>
+
+    </div>
+
+<!-- 2 -->
+     <div id="give_letter_guess_num">
+        <h1 class="heading">give letter guess num</h1>
+
+        <h3 id="give_letter_guess_num-letter" class="question">letter: </h3>
+        <div class="stopwatch" id="timer-2"></div><br>
+      <input type="text" class="cool_input" id="give_letter_guess_num-input">
+        <button class="button_1" onclick="give_letter_f()">Enter</button>
+        <br>
+        <h1 id="give_letter_guess_num-ans"></h1>
+    </div>
+<!-- 3 -->
+      <div id="give_morse_guess_letter">
+        <h1 class="heading">give morse guess letter</h1>
+
+        <h3 id="give_morse_guess_letter-num" class="question">morse: </h3> 
+ <div class="stopwatch" id="timer-3"></div><br>
+<label for="">choose a length for the morse</label>
+
+        <select name="cars" id="give_morse_guess_letter-option"  onchange="length_of_morse()">
+            <option value="all">all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            
+        </select> 
+
+
+
+
+      <input type="text" class="cool_input" id="give_morse_guess_letter-input">
+        <button class="button_1" onclick="give_morse()">Enter</button>
+        <br>
+        <h1 id="give_morse_guess_letter-ans"></h1>
+    </div>
+
+
+<!-- 4 -->
+     </div>
+
+      <div id="give_letter_guess_morse">
+        <h1 class="heading">give letter guess morse</h1>
+
+        <h3 class="question" id="give_letter_guess_morse-letter">letter: </h3>
+ <div class="stopwatch" id="timer-4"></div><br>
+
+        <label for="">choose a length for the morse</label>
+        <select name="cars" id="give_letter_guess_morse-option"   onchange="option_changes_step_4()">
+            <option value="all">all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5-> numbers</option>
+            
+        </select> 
+
+
+      <input type="text" class="cool_input" id="give_letter_guess_morse-input">
+        <button class="button_1" onclick="give_letter_guess_morse_f()">Enter</button>
+        <br>
+        <h1 id="give_letter_guess_morse-ans"></h1>
+    </div>
+
+
+
+ 
+     
+<!-- 5 atbash_encryption -->
+
+     <div id="atbash_encryption">
+        <h1 class="heading" id="atbash_encryption-question">Encrypt "Chess" using atbash cipher</h1>
+ <div class="stopwatch" id="timer-5"></div><br>
+<input type="text" class="cool_input" id="atbash_encryption-input">
+<button id="atbash_encryption-button"  class="button_1" onclick="atbash_en_f()">Enter</button>
+<h1 id="atbash_encryption-ans"></h1>
+
+</div>
+<!-- 6 atbash_decryption  -->
+        <div id="atbash_decryption">
+        <h1 class="heading" id="atbash_decryption-question">Decrypt "Xsvhh" using atbash cipher</h1>
+ <div class="stopwatch" id="timer-6"></div><br>
+<input type="text" class="cool_input" id="atbash_decryption-input">
+<button id="atbash_decryption-button"  class="button_1" onclick="atbash_de_f()">Enter</button>
+<h1 id="atbash_decryption-ans"></h1>
+
+
+
+     </div>
+
+     <!-- 7 ceasar shift_encryption -->
+ <div id="shift_encryption">
+        <h1 class="heading" id="shift_encryption-question">Encrypt "word" using caesar cipher by 3</h1>
+ <div class="stopwatch" id="timer-7"></div><br>
+<input type="text" class="cool_input" id="shift_encryption-input">
+<button id="shift_encryption-button"  class="button_1" onclick="shift_encryption_f()">Enter</button>
+<h1 id="shift_encryption-ans"></h1>
+
+
+
+     </div>  
+
+        <!-- 8 ceasar shift_decryption -->
+ <div id="shift_decryption">
+        <h1 class="heading" id="shift_decryption-question">Decrypt "word" using caesar cipher </h1>
+         <div class="stopwatch" id="timer-8"></div><br>
+<input type="text" class="cool_input" id="shift_decryption-input">
+<button id="shift_decryption-button"  class="button_1" onclick="shift_decrpytion_f()">Enter</button>
+<h1 id="shift_decryption-ans"></h1>
+</div>
+<!-- 9 affine cipher Encrypt -->
+ <div id="affine_en">
+        <h1 class="heading" id="affine_en-question">Decrypt "word" using caesar cipher </h1>
+         <div class="stopwatch" id="timer-9"></div><br>
+       <label for="">choose the value of a</label>
+         <select name="" id="affine_en-option" onchange="onchange_option_9()">
+             <option value="all">random</option>
+             <option value="1">1</option>
+             <option value="3">3</option>
+             <option value="5">5</option>
+             <option value="7">7</option>
+             <option value="9">9</option>
+             <option value="11">11</option>
+             <option value="15">15</option>
+             <option value="17">17</option>
+             <option value="19">19</option>
+             <option value="21">21</option>
+             <option value="23">23</option>
+             <option value="25">25</option>
+          
+         </select>
+<input type="text" class="cool_input" id="affine_en-input">
+<button id="affine_en-button"  class="button_1" onclick="affine_en_f()">Enter</button>
+<h1 id="affine_en-ans"></h1>
+</div>
+
+<!-- 10 affine cipher Decrypt -->
+ <div id="affine_de">
+        <h1 class="heading" id="affine_de-question">Decrypt "word" using caesar cipher </h1>
+         <div class="stopwatch" id="timer-10"></div><br>
+          <label for="">choose the value of a</label>
+         <select name="" id="affine_de-option" onchange= "onchange_option_10()">
+             <option value="all">random</option>
+             <option value="1">1</option>
+             <option value="3">3</option>
+             <option value="5">5</option>
+             <option value="7">7</option>
+             <option value="9">9</option>
+             <option value="11">11</option>
+             <option value="15">15</option>
+             <option value="17">17</option>
+             <option value="19">19</option>
+             <option value="21">21</option>
+             <option value="23">23</option>
+             <option value="25">25</option>
+          
+         </select>
+<input type="text" class="cool_input" id="affine_de-input">
+<button id="affine_de-button"  class="button_1" onclick="affine_de_f()">Enter</button>
+<h1 id="affine_de-ans"></h1>
+
+     </div>
+
+
+
+     <!-- 11 vigenere cipher Encrypt -->
+ <div id="vigenere_en">
+        <h1 class="heading" id="vigenere_en-question">Encrypt "word" using vigenere cipher with a key of "key"</h1>
+         <div class="stopwatch" id="timer-11"></div><br>
+<input type="text" class="cool_input" id="vigenere_en-input">
+<button id="vigenere_en-button"  class="button_1" onclick="vigenere_en_f()">Enter</button>
+<h1 id="vigenere_en-ans"></h1>
+
+     </div>
+     <!-- 12 vigenere cipher Decrypt -->
+ <div id="vigenere_de">
+        <h1 class="heading" id="vigenere_de-question">Decrypt "word" using vigenere cipher with a key of "key"</h1>
+         <div class="stopwatch" id="timer-12"></div><br>
+<input type="text" class="cool_input" id="vigenere_de-input">
+<button id="vigenere_de-button"  class="button_1" onclick="vigenere_de_f()">Enter</button>
+<h1 id="vigenere_de-ans"></h1>
+
+     </div>
+
+<!-- 13 random_multiplication_for_affine -->
+
+ <div id="random_multiplication_for_affine">
+        <h1 class="heading" id="random_multiplication_for_affine-question">what is 3 * 3</h1>
+         <div class="stopwatch" id="timer-13"></div><br>
+        <label for="">choose multiplcation table</label>
+
+        <select name="cars" id="random_multiplication_for_affine-option"  onchange="random_multiplication_for_affine_changed()">
+            <option value="all">all</option>
+            <option value="1">1</option> 
+            <option value="3">3</option>
+            <option value="5">5</option>               
+            <option value="7">7</option>               
+            <option value="9">9</option>               
+            <option value="11">11</option>               
+            <option value="15">15</option>               
+            <option value="17">17</option>               
+            <option value="19">19</option>               
+            <option value="21">21</option>               
+            <option value="23">23</option>               
+            <option value="25">25</option>               
+            <option value="26">26</option>               
+            
+        </select> 
+<input type="text" class="cool_input" id="random_multiplication_for_affine-input">
+<button id="random_multiplication_for_affine-button"  class="button_1" onclick="random_multiplication_for_affine_f()">Enter</button>
+<h1 id="random_multiplication_for_affine-ans"></h1>
+
+     </div>
+
+
+<!-- 14 random_multiplication_for_affine_in_order -->
+
+ <div id="random_multiplication_for_affine_in_order">
+        <h1 class="heading" id="random_multiplication_for_affine_in_order-question">what is 3 * 3</h1>
+        <div class="stopwatch" id="timer-14"></div><br>
+        <label for="">choose multiplcation table</label>
+
+        <select name="cars" id="random_multiplication_for_affine_in_order-option"  onchange="random_multiplication_for_affine_in_order_changed()">
+            <option value="all">all</option>
+            <option value="1">1</option> 
+            <option value="3">3</option>
+            <option value="5">5</option>               
+            <option value="7">7</option>               
+            <option value="9">9</option>               
+            <option value="11">11</option>               
+            <option value="15">15</option>               
+            <option value="17">17</option>               
+            <option value="19">19</option>               
+            <option value="21">21</option>               
+            <option value="23">23</option>               
+            <option value="25">25</option>               
+            <option value="26">26</option>               
+            
+        </select> 
+<input type="text" class="cool_input" id="random_multiplication_for_affine_in_order-input">
+<button id="random_multiplication_for_affine_in_order-button"  class="button_1" onclick="random_multiplication_for_affine_in_order_f()">Enter</button>
+<h1 id="random_multiplication_for_affine_in_order-ans"></h1>
+
+     </div>
+<!-- 15 baconian_letter_str-->
+<div id="baconian_letter_str">
+        <h1 class="heading" id="baconian_letter_str-question">what is "AAAAA"</h1>
+         <div class="stopwatch" id="timer-15"></div><br>
+        <label for=""> choose a number of b's</label>
+
+        <select name="cars" id="baconian_letter_str-option"  onchange="baconian_letter_str_on_change()">
+            <option value="all">all</option>
+            <option value="0">0</option> 
+            <option value="1">1</option> 
+            <option value="2_4">2 and end with b</option>
+            <option value="2_3">2 and b in 2^1 position</option>
+            <option value="2_2">2 and b in 2^2 position</option>
+            <option value="3_4">3 and end with b</option>
+            <option value="3_3">3 and b in 2^1 position</option>
+            <option value="4">4</option>               
+                            
+            
+        </select> 
+<input type="text" class="cool_input" id="baconian_letter_str-input">
+<button id="baconian_letter_str-button"  class="button_1" onclick="baconian_letter_str_f()">Enter</button>
+<h1 id="baconian_letter_str-ans"></h1>
+
+     </div>
+<!-- 16 modular_arithmetic-->
+<div id="modular_arithmetic">
+        <h1 class="heading" id="modular_arithmetic-question">what is 25 mod 26? </h1>
+         <div class="stopwatch" id="timer-16"></div><br>
+       
+<input type="text" class="cool_input" id="modular_arithmetic-input">
+<button id="modular_arithmetic-button"  class="button_1" onclick="modular_arithmetic_f()">Enter</button>
+<h1 id="modular_arithmetic-ans"></h1>
+
+     </div>
+<!-- 17 modular_arithmetic-->
+<div id="modular_arithmetic_w_letters">
+        <h1 class="heading" id="modular_arithmetic_w_letters-question">what is 25 mod 26? </h1>
+         <div class="stopwatch" id="timer-17"></div><br>
+       
+<input type="text" class="cool_input" id="modular_arithmetic_w_letters-input">
+<button id="modular_arithmetic_w_letters-button"  class="button_1" onclick="modular_arithmetic_w_letters_f()">Enter</button>
+<h1 id="modular_arithmetic_w_letters-ans"></h1>
+
+     </div>
+
+<!-- 18 pollux --> 
+<div id="pollux">
+        <!-- <h1 class="heading" id="pollux-question">what is 25 mod 266? </h1> -->
+
+
+         <h1 class="heading">pollux decryption</h1>
+         <div class="stopwatch" id="timer-18"></div><br>
+
+        <div id="pollux-hint" style="display:block;">
+         <table id="pollux-hint-table">
+             <tr>
+                 <td>0</td>
+                 <td>1</td>
+                 <td>2</td>
+                 <td>3</td>
+                 <td>4</td>
+                 <td>5</td>
+                 <td>6</td>
+                 <td>7</td>
+                 <td>8</td>
+                 <td>9</td>
+             </tr>
+             <tr>
+                 <td class="pollux-hint-value">.</td><!-- 0  -->
+                 <td class="pollux-hint-value">-</td><!-- 1  -->
+                 <td class="pollux-hint-value">x</td><!-- 2  -->
+                 <td class="pollux-hint-value">x</td><!-- 3  -->
+                 <td class="pollux-hint-value">-</td><!-- 4  -->
+                 <td class="pollux-hint-value">-</td><!-- 5  -->
+                 <td class="pollux-hint-value">-</td><!-- 6  -->
+                 <td class="pollux-hint-value"></td><!-- 7  -->
+                 <td class="pollux-hint-value"></td><!-- 8  -->
+                 <td class="pollux-hint-value"></td><!-- 9  -->
+             </tr>
+         </table>
+      <button onclick="fill_in_the_hints_18()()" class="button_1">fill_in_the_hints</button>
+      <button onclick="fill_in_what_we_know_18()" class="button_1">fill_in_the_table_info and your notes</button>
+         <button onclick="reset_input_of_player_18()" class="button_1">reset</button>
+        </div>
+
+        <table id="pollux-table">
+            <!-- <tr>
+
+         <table>
+
+            <tr>
+
+                <td>
+                    <div>
+
+                    <input class = "pollux-inputs" type="text" item-width="10px" font-size="50px" style="font-size: 50px; width: 50px;" >
+                    </div>
+                    <div>4</div> 
+                </td>
+
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>9</div> 
+
+                </td>
+                
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>0</div>  
+                </td>
+                
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>0</div>  
+                </td>
+            </tr>
+         </table>
+            </tr>
+
+          
+            <tr>
+                <td>
+
+                <input type="text">
+                </td>
+
+            </tr>
+           
+            <tr>
+                <table>
+
+            <tr>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                     <div>2</div>  
+                </td>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>9</div>  
+                </td>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>0</div>  
+                </td>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                     <div>2</div>
+                </td>
+                    
+            </tr>
+                </table>
+            </tr>
+            <br>
+            <tr>
+                <td>
+
+                <input type="text">
+                </td>
+
+                <div>
+
+                </div>
+            </tr> -->
+        </table>
+
+
+
+
+<br>
+<!-- <br>
+<h1 class="heading">your notes</h1>
+ <div id="" style="display:block;">
+         <table id="" style="font-size:50px;">
+             <tr>
+                
+                 <td class=""><input class="hint-table-write" type="text"></td> 
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+             </tr>
+             <tr>
+                  
+                 <td>..</td>
+                 <td>.-</td>
+                 <td>.x</td>
+                 <td>-.</td>
+                 <td>--</td>
+                 <td>-x</td>
+                 <td>x.</td>
+                 <td>x-</td>
+                 <td>xx</td>
+             </tr>
+         </table>
+ 
+        </div> -->
+
+
+
+<!-- class="pollux-input"  -->
+<input type="text" class = "pollux-new-inputs" id="pollux-input">
+<button id="pollux-button"  class="button_1" onclick="pollux_f()">Enter</button>
+<h1 id="pollux-ans"></h1>
+
+     </div>
+     
+
+
+
+<!-- 19 morbit -->
+<div id="morbit">
+        <!-- <h1 class="heading" id="morbit-question">what is 25 mod 266? </h1> -->
+
+
+         <h1 class="heading">morbit decryption</h1>
+         <div class="stopwatch" id="timer-19"></div><br>
+
+        <div id="morbit-hint" style="display:block;">
+         <!-- <table id="morbit-hint-table">
+             <tr>
+                 
+                 <td>1</td>
+                 <td>2</td>
+                 <td>3</td>
+                 <td>4</td>
+                 <td>5</td>
+                 <td>6</td>
+                 <td>7</td>
+                 <td>8</td>
+                 <td>9</td>
+             </tr>
+             <tr>
+                 
+                 <td class="morbit-hint-value">-</td> 
+                 <td class="morbit-hint-value">x</td> 
+                 <td class="morbit-hint-value">x</td> 
+                 <td class="morbit-hint-value">-</td> 
+                 <td class="morbit-hint-value">-</td> 
+                 <td class="morbit-hint-value">-</td> 
+                 <td class="morbit-hint-value"></td> 
+                 <td class="morbit-hint-value"></td> 
+                 <td class="morbit-hint-value"></td> 
+             </tr>
+         </table> -->
+         <table id="morbit-hint-table">
+             <tr>
+                 
+                 <td class="morbit-hint-value">-</td><!-- 1  -->
+                 <td class="morbit-hint-value">x</td><!-- 2  -->
+                 <td class="morbit-hint-value">x</td><!-- 3  -->
+                 <td class="morbit-hint-value">-</td><!-- 4  -->
+                 <td class="morbit-hint-value">-</td><!-- 5  -->
+                 <td class="morbit-hint-value">-</td><!-- 6  -->
+                 <td class="morbit-hint-value"></td><!-- 7  -->
+                 <td class="morbit-hint-value"></td><!-- 8  -->
+                 <td class="morbit-hint-value"></td><!-- 9  -->
+             </tr>
+             <tr>
+                 
+                 <td class="morbit-hint-value-botton">..</td>
+                 <td class="morbit-hint-value-botton">.-</td>
+                 <td class="morbit-hint-value-botton">.x</td>
+                 <td class="morbit-hint-value-botton">-.</td>
+                 <td class="morbit-hint-value-botton">--</td>
+                 <td class="morbit-hint-value-botton">-x</td>
+                 <td class="morbit-hint-value-botton">x.</td>
+                 <td class="morbit-hint-value-botton">x-</td>
+                 <td class="morbit-hint-value-botton">xx</td>
+             </tr>
+         </table>
+         <button onclick="fill_in_the_hints_19()" class="button_1">fill_in_the_hints</button>
+      <button onclick="fill_in_what_we_know_19()" class="button_1">fill_in_the_table_info and your notes</button>
+
+         <button onclick="reset_input_of_player_19()" class="button_1">reset</button>
+        </div>
+
+        <table id="morbit-table">
+            <!-- <tr>
+
+         <table>
+
+            <tr>
+
+                <td>
+                    <div>
+
+                    <input class = "pollux-inputs" type="text" item-width="10px" font-size="50px" style="font-size: 50px; width: 50px;" >
+                    </div>
+                    <div>4</div> 
+                </td>
+
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>9</div> 
+
+                </td>
+                
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>0</div>  
+                </td>
+                
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>0</div>  
+                </td>
+            </tr>
+         </table>
+            </tr>
+
+          
+            <tr>
+                <td>
+
+                <input type="text">
+                </td>
+
+            </tr>
+           
+            <tr>
+                <table>
+
+            <tr>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                     <div>2</div>  
+                </td>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>9</div>  
+                </td>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>0</div>  
+                </td>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                     <div>2</div>
+                </td>
+                    
+            </tr>
+                </table>
+            </tr>
+            <br>
+            <tr>
+                <td>
+
+                <input type="text">
+                </td>
+
+                <div>
+
+                </div>
+            </tr> -->
+        </table>
+<!-- <br>
+<h1 class="heading">your notes</h1>
+ <div id="" style="display:block;">
+         <table id="" style="font-size:50px;">
+             <tr>
+                 
+                 <td class=""><input class="hint-table-write" type="text"></td> 
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+                 <td class=""><input class="hint-table-write" type="text"></td>
+             </tr>
+             <tr>
+              
+                 <td>..</td>
+                 <td>.-</td>
+                 <td>.x</td>
+                 <td>-.</td>
+                 <td>--</td>
+                 <td>-x</td>
+                 <td>x.</td>
+                 <td>x-</td>
+                 <td>xx</td>
+             </tr>
+         </table> -->
+         <!-- <button onclick="reset_input_of_player_19()" class="button_1">reset</button> -->
+<!-- class="pollux-input"  -->
+<input type="text" class = "morbit-new-inputs" id="morbit-input">
+<button id="morbit-button"  class="button_1" onclick="morbit_f()">Enter</button>
+<h1 id="morbit-ans"></h1>
+        </div>
+        </div>
+
+
+<br>
+
+
+ 
+<div id="cryptogram_de">
+    <div class="stopwatch" id="timer-20"></div><br>
+<table id="cryptogram_de-table">
+    
+         <!-- <table>
+
+            <tr>
+
+                <td>
+                    <div>
+
+                    <input class = "pollux-inputs" type="text" item-width="10px" font-size="50px" style="font-size: 50px; width: 50px;" >
+                    </div>
+                    <div>4</div> 
+                </td>
+
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>9</div> 
+
+                </td>
+                
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>0</div>  
+                </td>
+                
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>0</div>  
+                </td>
+            </tr>
+         </table>
+            </tr>
+
+          
+             
+           
+            <tr>
+                <table>
+
+            <tr>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                     <div>2</div>  
+                </td>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>9</div>  
+                </td>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                    <div>0</div>  
+                </td>
+                <td>
+                    <input class = "pollux-inputs" type="text">
+                     <div>2</div>
+                </td>
+                    
+            </tr>
+                </table>
+            </tr> -->
+            <br>
+          
+</table>
+    <button id="cryptogram_de" class="button_1" onclick="cryptogram_de_f()">enter</button>
+    <button class="button_1" onclick="reset_20()">reset</button>
+    <button class="button_1" onclick="get_hint_20()">hint</button>
+      <h1 id="cryptogram_de-ans"></h1>
+
+</div>
+<!-- 21 modular_arithmetic-->
+<div id="modular_arithmetic_w_negative">
+        <h1 class="heading" id="modular_arithmetic_w_negative-question">what is 25 mod 26? </h1>
+         <div class="stopwatch" id="timer-21"></div><br>
+       
+<input type="text" class="cool_input" id="modular_arithmetic_w_negative-input">
+<button id="modular_arithmetic_w_negative-button"  class="button_1" onclick="modular_arithmetic_w_negative_f()">Enter</button>
+<h1 id="modular_arithmetic_w_negative-ans"></h1>
+
+     </div>
+</div>
+<!-- 22 create_question_atbash -->
+    <div id="create_question_atbash">
+        <h1 class="heading">Create Atbash question</h1>
+        <input class="cool_input" id="create_question_atbash-input" type="text">
+      <button class="button_1" onclick="create_question_atbash_f()">enter</button>
+      <h1 id="create_question_atbash-ans"></h1>
+    </div>
+
+      
+<!-- 23 to_print_morbit-->
+    <div id="to_print_morbit">
+        <h1 class="heading" id="to_print_morbit-info">A quote has been encoded using the Morbit Cipher for you to decode. You are told that 4=–●, 5=––, 6=–x,7=x●, 8=x-,9=xx</h1>
+
+       <div style="">
+           
+      <h1 id="to_print_morbit-question" style="float: left;"></h1>
+      <button class="button_1" style="margin-left:69px;" onclick="to_print_morbit_f()">enter</button>
+       </div>
+    </div>
+<!-- 24 to_print_pollux-->
+    <div id="to_print_pollux">
+        <h1 class="heading" id="to_print_pollux-info">A quote has been encoded using the Pollux Cipher for you to decode. You are told that 4=●, 5=–, 6=–,7=x, 8=x,9=x</h1>
+
+       <div style="">
+           
+      <h1 id="to_print_pollux-question" style="float: left;"></h1>
+      <button class="button_1" style="margin-left:69px;" onclick="to_print_pollux_f()">enter</button>
+       </div>
+    </div>
+
+
+
+     
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+.cool_input {
+  background-color: #3CBC8D;
+  color: white;
+  height: 50px;
+  font-size: 50px;
+}
+.heading {
+    
+ background-color: black;
+  color: white;
+}
+.button_1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.question {
+    font-size: 50px;
+}
+.button_2 {
+    /* button to go to different sections */
+}
+
+.button {
+	pointer-events: auto;
+	cursor: pointer;
+	background: #e7e7e7;
+	border: none;
+	padding: 1.5rem 3rem;
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	position: relative;
+	display: inline-block;
+}
+
+.button::before,
+.button::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.button--janus {
+	font-family: freight-display-pro, serif;
+	font-weight: 900;
+	width: 175px;
+	height: 120px;
+	color: #fff;
+	background: none;
+}
+
+.button--janus::before {
+	content: '';
+	background: #e6e6e6;
+	-webkit-clip-path: path("M154.5,88.5 C131,113.5 62.5,110 30,89.5 C-2.5,69 -3.5,42 4.5,25.5 C12.5,9 33.5,-6 85,3.5 C136.5,13 178,63.5 154.5,88.5 Z");
+	clip-path: path("M154.5,88.5 C131,113.5 62.5,110 30,89.5 C-2.5,69 -3.5,42 4.5,25.5 C12.5,9 33.5,-6 85,3.5 C136.5,13 178,63.5 154.5,88.5 Z");
+	transition: clip-path 0.5s cubic-bezier(0.585, 2.5, 0.645, 0.55), -webkit-clip-path 0.5s cubic-bezier(0.585, 2.5, 0.645, 0.55), background 0.5s ease;
+}
+
+.button--janus:hover::before {
+	background: #000;
+	-webkit-clip-path: path("M143,77 C117,96 74,100.5 45.5,91.5 C17,82.5 -10.5,57 5.5,31.5 C21.5,6 79,-5.5 130.5,4 C182,13.5 169,58 143,77 Z");
+	clip-path: path("M143,77 C117,96 74,100.5 45.5,91.5 C17,82.5 -10.5,57 5.5,31.5 C21.5,6 79,-5.5 130.5,4 C182,13.5 169,58 143,77 Z");
+}
+
+.button--janus::after {
+	content: '';
+	height: 86%;
+	width: 97%;
+	top: 5%;
+	border-radius: 58% 42% 55% 45% / 56% 45% 55% 44%;
+	border: 1px solid #000;
+	transform: rotate(-20deg);
+	z-index: -1;
+	transition: transform 0.5s cubic-bezier(0.585, 2.5, 0.645, 0.55);
+}
+
+.button--janus:hover::after {
+	transform: translate3d(0,-5px,0);
+}
+
+.button--janus span {
+	display: block;
+	transition: transform 0.3s ease;
+	mix-blend-mode: difference;
+}
+
+.button--janus:hover span {
+	transform: translate3d(0,-10px,0);
+}
+
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.button_kewl {
+	box-shadow:inset 0px 0px 0px 0px #97c4fe;
+	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	background-color:#3d94f6;
+	border-radius:7px;
+	border:1px solid #337fed;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:28px;
+	font-weight:bold;
+	padding:19px 24px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #1570cd;
+}
+.button_kewl:hover {
+	background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+	background-color:#1e62d0;
+}
+.button_kewl:active {
+	position:relative;
+	top:1px;
+}
+.correct {
+    color: rgb(0, 156, 26);
+    font-style: normal;
+    font-size: 70px;
+font-family: 'Ubuntu', sans-serif;
+}
+.wrong {
+    color: rgb(255, 0, 0);
+    font-size: 70px;
+    font-style: normal;
+    /* font-family: 'Open Sans', sans-serif; */
+font-family: 'Ubuntu', sans-serif;
+}
+
+.stopwatch {
+  display: inline-block;
+  background-color: white;
+  border: 10px solid #eee;
+  padding: 5px;
+  margin: 5px;
+  margin-left: 5px ;
+  font-size: 50px; 
+}
+
+.stopwatch span {
+  font-weight: bold;
+  display: block;
+}
+
+.stopwatch a {
+  padding-right: 5px;
+  text-decoration: none;
+}
+table,td {
+    border: 1px solid black;
+    border-collapse: collapse; 
+    background: gray;
+    /* font-size: 50px; */
+}
+.pollux-inputs {
+    
+    width: 50px;
+}
+.pollux-inputs, table, td {
+    font-size: 50px;
+}
+.morbit-inputs {
+    
+    width: 50px;
+}
+.morbit-inputs, table, td {
+    font-size: 50px;
+}
+/* .pollux-new-inputs {
+     
+  background-color: #3CBC8D;
+  color: white;
+  height: 50px;
+  font-size: 50px;
+ width: 50px;
+} */
+/* print morbit css*/
+#to_print_morbit-question, #to_print_morbit-info {
+     
+  font-family: Arial;
+}
+ 
+/*  */
